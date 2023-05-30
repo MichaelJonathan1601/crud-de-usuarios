@@ -16,6 +16,8 @@ Projeto rodando na 8080, para visualizar, acessar o caminho localhost:8080/login
 # Banco h2
 
 O banco h2 esta sendo utilizado no projeto. Para visualizar os registros, acessar localhost:8080/h2-console
+username=sa
+password="" (vazio)
 (lembrando que todos os dados serão perdidos ao encerrar a aplicação)
 
 # Adicionais
