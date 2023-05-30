@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Atlantic Crud</title>
+    <link rel="stylesheet" th:href="@{/css/mainLayout/mainLayout.css}" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header th:fragment="header">
+        <nav class="menu">
+                <a th:href="@{/profile}">Perfil</a>
+                <a th:href="@{/settings}">Usuários</a>
+                <a th:href="@{/settings}">Configurações</a>
+        </nav>
+    </header>
+
+<!--    <div th:fragment="main-content">-->
+<!--        <div th:fragment="content">-->
+<!--            &lt;!&ndash; Conteúdo da página específica &ndash;&gt;-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <footer th:fragment="footer">
+        <p>&copy; 2023 Meu Projeto. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br" >
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" th:href="@{/css/user/register.css}" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Cadastro de Usuário</h1>
+
+    <form th:action="@{/register}" method="post">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+
+        <div>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+
+        <div>
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+        </div>
+
+        <div>
+            <label for="ativo">Status:</label>
+            <select id="ativo" name="ativo">
+                <option value="True">Ativo</option>
+                <option value="False">Inativo</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="responsavel">Usuário Responsável:</label>
+            <select class="form-control" id="responsavel" name="responsavel">
+                <option value="">Selecione</option>
+                <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.email}"></option>
+            </select>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+</body>
+</html>

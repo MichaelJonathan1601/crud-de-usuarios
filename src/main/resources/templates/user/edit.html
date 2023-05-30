@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" th:href="@{/css/user/profile.css}" />
+    <link rel="stylesheet" th:href="@{/css/mainLayout/mainLayout.css}" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<header th:replace="layouts/mainLayout :: header"></header>
+
+<h1>Perfil do Usuário</h1>
+
+
+<form th:action="@{/profile/update}" method="post" th:object="${user}">
+    <div class="profile-container">
+        <p><strong>Nome:</strong> <input type="text" th:value="${user.nome}" th:field="*{nome}" /></p>
+        <input type="hidden" th:value="${user.email}" name="email">
+        <input type="checkbox" th:checked="${user.ativo}" th:field="*{ativo}" id="ativo" />
+        <label for="ativo">Ativo</label>
+        <button type="submit" class="edit-button">Atualizar</button>
+    </div>
+</form>
+
+
+
+<footer th:replace="layouts/mainLayout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" th:href="@{/css/user/profile.css}" />
+    <link rel="stylesheet" th:href="@{/css/mainLayout/mainLayout.css}" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<header th:replace="layouts/mainLayout :: header"></header>
+
+<h1>Perfil do Usuário</h1>
+
+        <div class="profile-container">
+            <p><strong>Nome:</strong> <span th:text="${user.nome}"></span></p>
+            <p><strong>E-mail:</strong> <span th:text="${user.email}"></span></p>
+            <p><strong>CPF:</strong> <span th:text="${user.cpf}"></span></p>
+            <p><strong>Status:</strong> <span th:text="${user.ativo == true ? 'Ativo' : 'Inativo'}"></span></p>
+            <p><strong>Usuário Responsável:</strong> <span th:text="${user.responsavel != null ? user.responsavel.nome : 'Nenhum'}"></span></p>
+
+            <h2>Permissões:</h2>
+            <ul>
+                <li th:each="permissao : ${user.permissoes}">
+                    <span th:text="${permissao.codigo}"></span> - <span th:text="${permissao.descricao}"></span>
+                </li>
+            </ul>
+            <button class="edit-button"><a th:href="@{/profile/edit/{email}(email=${user.email})}">Editar</a></button>
+        </div>
+
+<footer th:replace="layouts/mainLayout :: footer"></footer>
+</body>
+</html>
